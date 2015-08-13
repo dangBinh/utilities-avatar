@@ -8,3 +8,5 @@ ANNOUNCEMENT
 This package is unoffical. Try  [https://github.com/meteor-utilities/avatar/](https://github.com/meteor-utilities/avatar/).
 
 This package has not tested. Just try and relax.
+
+User <ReactAvatar /> instead of <Avatar />
