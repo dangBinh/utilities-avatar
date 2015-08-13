@@ -9,4 +9,4 @@ This package is unoffical. Try  [https://github.com/meteor-utilities/avatar/](ht
 
 This package has not tested. Just try and relax.
 
-User <ReactAvatar /> instead of <Avatar />
+Use `<ReactAvatar />` instead of `<Avatar />`
