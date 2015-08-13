@@ -17,7 +17,7 @@ Package.onUse(function(api) {
   // Since JSX is only used when compiling and it isn't delivered to clients this isn't an issue, even for
   // those who aren't using React in their project.
 
-  api.use('reactjs:react');
+  api.use('reactjs:react@0.2.4');
 
   api.addFiles(
     [
