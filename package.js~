@@ -1,0 +1,50 @@
+Package.describe({
+  name: 'bigbug:utilities-avatar',
+  version: '0.0.1',
+  // Brief, one-line summary of the package.
+  summary: '',
+  // URL to the Git repository containing the source code for this package.
+  git: '',
+  // By default, Meteor will default to using README.md for documentation.
+  // To avoid submitting documentation, set this field to null.
+  documentation: 'README.md'
+});
+
+Package.onUse(function(api) {
+  api.versionsFrom(['METEOR@0.9.4.1', 'METEOR@1.1.0.1']);
+  api.use(['templating', 'reactive-var'], ['client']);
+  api.use(['underscore', 'jparker:gravatar@0.3.1'], ['client', 'server']);
+  api.use(['meteorhacks:inject-initial@1.0.2'], ['server']);
+
+  // To add support for React we can need to weak link to it so that it's not uncessarily included
+  // However we have to force the inclusion of the jsx compiler otherwise our jsx files aren't included.
+  // Since JSX is only used when compiling and it isn't delivered to clients this isn't an issue, even for
+  // those who aren't using React in their project.
+
+  api.use('reactjs:react');
+
+  api.addFiles(
+    [
+      'blaze/avatar.html',
+      'blaze/avatar.js',
+    ],
+    ['client']
+  );
+  api.addFiles(
+    [
+      'react/avatar.jsx',
+      'utils.js',
+      'helpers.js',
+      'export.js',
+      'default.png'
+    ],
+    ['client', 'server']
+  );
+  api.export('Avatar');
+});
+
+Package.onTest(function(api) {
+  api.use('tinytest');
+  api.use('bigbug:utilities-avatar');
+  api.addFiles('utilities-avatar-tests.js');
+});
