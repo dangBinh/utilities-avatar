@@ -14,7 +14,10 @@
          var user = (this.props.user) ? this.props.user : Meteor.users.findOne(this.props.userId);
          var initials = initialsText(user, this.props);
          var url = Avatar.getUrl(user);
-
+         var userImage = this.props.cfsImage;
+         if (userImage != null) {
+           url = userImage;
+         }
          // If the URL has changed then we need to update the state with the new URL, and also (re)display the IMG tag
          if (this.state.url !== url.trim()) {
 
